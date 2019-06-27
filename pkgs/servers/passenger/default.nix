@@ -17,6 +17,7 @@
   lsof,
   procps,
   beep,
+  autoPatchelfHook,
   version ? "6.0.2",
   nginxVersion ? "1.15.8",
   buildStandalone ? true,
@@ -89,6 +90,9 @@ let
       openssl
       zlib
       pcre
+    ];
+    nativeBuildInputs = [
+      autoPatchelfHook
     ];
     PASSENGER_AGENT_OPTIMIZE = if optimizations then "true" else "false";
     PREFETCHED_FILES_JSON = prefetchedFilesJson;
